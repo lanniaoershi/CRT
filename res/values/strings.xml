@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CRT</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_host">Host A Game</string>
+    <string name="btn_guest">Join A Game</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="introdution">Solve you confliction through a funny way.</string>
+    <string name="copy_right">Powered by: CPT hackathon team</string>
+    <string name="name">User_name</string>
+    <string name="ready">Ready!</string>
+    
+</resources>
