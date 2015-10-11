@@ -12,6 +12,7 @@ public class GameActivity extends Activity {
 	
 	private boolean mIsGameOwner;
 	private PlayerFragment mPlayerFragment;
+	private GamePadFragment mGamePadFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +22,16 @@ public class GameActivity extends Activity {
 		mIsGameOwner = intent.getBooleanExtra("OWNER", true);
 		FragmentManager fm = getFragmentManager();
 		FragmentTransaction transaction = fm.beginTransaction();  
+		
+		
 		mPlayerFragment = new PlayerFragment();
 		transaction.replace(R.id.player_fragment, mPlayerFragment);  
+//        transaction.commit();
+        
+        mGamePadFragment = new GamePadFragment();
+        transaction.replace(R.id.gamepad_fragment, mGamePadFragment);  
         transaction.commit();
+        
 		
 		if (mIsGameOwner){
 			startGameAsHost();
