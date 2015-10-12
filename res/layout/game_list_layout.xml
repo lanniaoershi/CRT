@@ -16,9 +16,9 @@
 
         <TextView
             android:id="@+id/group_name"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="16dp"
             android:text="Group one"
             android:textSize="20sp" />
