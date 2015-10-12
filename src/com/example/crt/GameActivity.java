@@ -13,6 +13,10 @@ public class GameActivity extends Activity {
 	private boolean mIsGameOwner;
 	private PlayerFragment mPlayerFragment;
 	private GamePadFragment mGamePadFragment;
+	private SearchFragment mSearchFragment;
+	
+	FragmentManager mFragmentManager;
+	FragmentTransaction mTransaction;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +24,12 @@ public class GameActivity extends Activity {
 		setContentView(R.layout.activity_game);
 		Intent intent = getIntent();
 		mIsGameOwner = intent.getBooleanExtra("OWNER", true);
-		FragmentManager fm = getFragmentManager();
-		FragmentTransaction transaction = fm.beginTransaction();  
-		
-		
-		mPlayerFragment = new PlayerFragment();
-		transaction.replace(R.id.player_fragment, mPlayerFragment);  
-//        transaction.commit();
+		mFragmentManager = getFragmentManager();
+		mTransaction = mFragmentManager.beginTransaction();  
         
         mGamePadFragment = new GamePadFragment();
-        transaction.replace(R.id.gamepad_fragment, mGamePadFragment);  
-        transaction.commit();
+        mTransaction.replace(R.id.gamepad_fragment, mGamePadFragment);  
+        //mTransaction.commit();
         
 		
 		if (mIsGameOwner){
@@ -48,11 +47,15 @@ public class GameActivity extends Activity {
 	}
 	
 	private void findGameOwner(){
-		
+		mSearchFragment = new SearchFragment();
+		mTransaction.replace(R.id.main_fragment, mSearchFragment);  
+		mTransaction.commit();
 	}
 	
 	private void createGame(){
-		
+		mPlayerFragment = new PlayerFragment();
+		mTransaction.replace(R.id.main_fragment, mPlayerFragment);  
+		mTransaction.commit();
 	}
 
 	@Override
